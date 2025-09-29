@@ -6,7 +6,7 @@ import "../styles/navbar.css"
 function Navbar() {
   return (
     <nav className="navbar">
-      <div className="navbar-container">
+      <div className="navbar-container gap-130">
         <div className="navbar-logo">
           <Link to="/">Virtual Cooking Mentor</Link>
         </div>

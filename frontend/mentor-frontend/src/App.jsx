@@ -2,8 +2,10 @@ import { ClerkProviderWithRoutes } from "./auth_comp/ClerkProviderWithRoutes.jsx
 import { Route, Routes } from "react-router-dom";
 import { AuthenticationPage } from "./auth_comp/Authentication";
 import { SignedIn, SignedOut } from "@clerk/clerk-react";
-import Home from "./pages/Home";
 import LandingPage from "./pages/LandingPage.jsx";
+import Home from "./pages/Home";
+import RecipePage from "./pages/RecipePage.jsx";
+import RecipesList from "./pages/RecipesList.jsx";
 
 function App() {
   return (
@@ -19,19 +21,32 @@ function App() {
         <Route
           path="/Home"
           element={
-            <SignedIn>\\
+            <SignedIn>
               <Home />
             </SignedIn>
           }
         />
+
+        {/* Recipes list page */}
         <Route
           path="/recipes"
           element={
             <SignedIn>
-              <div className="pt-20 p-8">Recipes Page Coming Soon!</div>
+              <RecipesList />
             </SignedIn>
           }
         />
+
+        {/* Recipe detail page */}
+        <Route
+          path="/recipe/:id"
+          element={
+            <SignedIn>
+              <RecipePage />
+            </SignedIn>
+          }
+        />
+
         <Route
           path="/ai-mentor"
           element={

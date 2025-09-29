@@ -23,9 +23,12 @@ function HomeNavbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
 
-                    {/* Logo/Brand */}
-                    <div className="flex-shrink-0">
-                        <Link to="/Home" className="text-2xl font-bold text-white hover:text-gray-100 transition-colors duration-200">
+                    {/* Logo/Brand */}  
+                    <div className="flex-shrink-0 text-decoration-none">
+                        <Link
+                            to="/Home"
+                            className=" text-3xl font-bold text-white text-decoration-none hover:text-gray-100 transition-colors duration-200"
+                        >
                             🍳 Cooking Mentor
                         </Link>
                     </div>
@@ -37,9 +40,9 @@ function HomeNavbar() {
                                 <Link
                                     key={item.name}
                                     to={item.path}
-                                    className={`px-4 py-2 rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 ${location.pathname === item.path
-                                            ? 'bg-white text-orange-500 shadow-md'
-                                            : 'text-white hover:bg-white/20 hover:text-white'
+                                    className={`no-underline px-4 py-2 text-decoration-none rounded-full text-lg font-medium transition-all duration-300 transform hover:scale-105 ${location.pathname === item.path
+                                        ? 'bg-white text-orange-500 shadow-md'
+                                        : 'text-white hover:bg-white/20 hover:text-white'
                                         }`}
                                 >
                                     {item.name}
@@ -92,7 +95,7 @@ function HomeNavbar() {
                         {/* Mobile Auth Button */}
                         <SignedOut>
                             <SignInButton mode="modal">
-                                <button className="bg-white text-orange-500 px-3 py-1 rounded-full text-sm font-medium">
+                                <button className="bg-white  text-orange-500 px-3 py-1 rounded-full text-sm font-medium">
                                     Sign In
                                 </button>
                             </SignInButton>
@@ -127,16 +130,16 @@ function HomeNavbar() {
 
             {/* Mobile Navigation Menu */}
             {isMobileMenuOpen && (
-                <div className="md:hidden bg-gradient-to-r from-yellow-400 to-orange-400 border-t border-white/20">
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <div className="md:hidden bg-gradient-to-r from-yellow-400 to-orange-400 border-t  border-white/20">
+                    <div className="px-2 pt-2 pb-3 space-y-1  sm:px-3">
                         {navItems.map((item) => (
                             <Link
                                 key={item.name}
                                 to={item.path}
                                 onClick={() => setIsMobileMenuOpen(false)}
-                                className={`block px-3 py-2 rounded-md text-base font-medium transition-all duration-200 ${location.pathname === item.path
-                                        ? 'bg-white text-orange-500'
-                                        : 'text-white hover:bg-white/20'
+                                className={`no-underline block px-3 py-2 rounded-md text-decoration-none text-base font-medium transition-all duration-200 ${location.pathname === item.path
+                                    ? 'bg-white text-orange-500'
+                                    : 'text-white hover:bg-white/20'
                                     }`}
                             >
                                 {item.name}
