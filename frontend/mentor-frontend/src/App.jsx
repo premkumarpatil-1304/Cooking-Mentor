@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage.jsx";
 import Home from "./pages/Home";
 import RecipePage from "./pages/RecipePage.jsx";
 import RecipesList from "./pages/RecipesList.jsx";
+import AddRecipe from "./pages/AddRecipe.jsx";
 
 function App() {
   return (
@@ -47,6 +48,16 @@ function App() {
           }
         />
 
+        {/* Add recipe page - MOVED INSIDE <Routes> */}
+        <Route
+          path="/add-recipe"
+          element={
+            <SignedIn>
+              <AddRecipe />
+            </SignedIn>
+          }
+        />
+
         <Route
           path="/ai-mentor"
           element={
@@ -71,7 +82,7 @@ function App() {
             </SignedIn>
           }
         />
-      </Routes>
+      </Routes>  {/* ← Route should be BEFORE this closing tag */}
     </ClerkProviderWithRoutes>
   );
 }

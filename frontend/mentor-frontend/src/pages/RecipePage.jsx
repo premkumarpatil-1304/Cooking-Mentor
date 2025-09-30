@@ -19,6 +19,7 @@ import {
     ArrowLeft
 } from 'lucide-react';
 import HomeNavbar from '../components/HomeNavbar';
+import chickenbowl from '../assets/chickenbowl.png';
 
 const RecipePage = () => {
     const { id } = useParams();
@@ -43,7 +44,7 @@ const RecipePage = () => {
                     id: parseInt(id),
                     title: "Mediterranean Herb-Crusted Salmon",
                     description: "A delicious and healthy salmon recipe with Mediterranean flavors",
-                    image: "/api/placeholder/800/400",
+                    image: chickenbowl,
                     prepTime: 15,
                     cookTime: 20,
                     totalTime: 35,

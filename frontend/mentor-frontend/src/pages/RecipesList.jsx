@@ -16,7 +16,7 @@ const RecipesList = () => {
                 id: 1,
                 title: "Mediterranean Herb-Crusted Salmon",
                 description: "A delicious and healthy salmon recipe with Mediterranean flavors",
-                image: "/api/placeholder/400/300",
+                "image": "../assets/images/Mediterranean.png",
                 prepTime: 15,
                 cookTime: 20,
                 servings: 4,
@@ -97,6 +97,9 @@ const RecipesList = () => {
     const handleRecipeClick = (recipeId) => {
         navigate(`/recipe/${recipeId}`);
     };
+    const handleAddRecipe = () => {
+        navigate('/add-recipe');
+    };
 
     const filteredRecipes = recipes.filter(recipe => {
         const matchesSearch = recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -116,15 +119,25 @@ const RecipesList = () => {
                 <div className="text-center mb-12">
                     <h1 className="text-4xl md:text-6xl font-bold text-gray-800 mb-6">
                         Our <span className="bg-gradient-to-r from-orange-500 to-amber-500 bg-clip-text text-transparent">Recipe Collection</span>
+
                     </h1>
+
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto">
                         Discover amazing recipes for every occasion, skill level, and taste preference
                     </p>
+                    <button onClick={handleAddRecipe}
+                        className="ml-4 bg-orange-500 text-white px-4 py-2 rounded-md hover:bg-orange-600 transition-colors duration-200">
+                        Add Recipe
+                    </button>
                 </div>
 
                 {/* Search and Filter Section */}
                 <div className="bg-white/80 backdrop-blur-md rounded-2xl border border-orange-200 p-6 mb-8 shadow-lg">
                     <div className="flex flex-col md:flex-row gap-4 items-center">
+                        <button onClick={handleAddRecipe}
+                            className="ml-4 bg-orange-500 text-white px-4 py-2.5 rounded-md hover:bg-orange-600 transition-colors duration-200">
+                            Add Recipe
+                        </button>
                         {/* Search Bar */}
                         <div className="flex-1 relative">
                             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
@@ -144,8 +157,8 @@ const RecipesList = () => {
                                     key={category}
                                     onClick={() => setSelectedCategory(category)}
                                     className={`px-4 py-2 rounded-full transition-all duration-200 font-medium ${selectedCategory === category
-                                            ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg transform scale-105'
-                                            : 'bg-orange-100 text-orange-700 hover:bg-orange-200 hover:scale-105'
+                                        ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white shadow-lg transform scale-105'
+                                        : 'bg-orange-100 text-orange-700 hover:bg-orange-200 hover:scale-105'
                                         }`}
                                 >
                                     {category.charAt(0).toUpperCase() + category.slice(1)}
@@ -199,8 +212,8 @@ const RecipesList = () => {
                                             <span>{recipe.servings}</span>
                                         </div>
                                         <span className={`px-2 py-1 rounded-full text-xs font-medium ${recipe.difficulty === 'Easy' ? 'bg-green-100 text-green-800' :
-                                                recipe.difficulty === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
-                                                    'bg-red-100 text-red-800'
+                                            recipe.difficulty === 'Medium' ? 'bg-yellow-100 text-yellow-800' :
+                                                'bg-red-100 text-red-800'
                                             }`}>
                                             {recipe.difficulty}
                                         </span>
@@ -244,6 +257,13 @@ const RecipesList = () => {
                     </div>
                 )}
             </main>
+            <button onClick={handleAddRecipe}
+                className="fixed bottom-5 right-2 bg-orange-500 text-white px-6 py-3 shadow-lg hover:bg-orange-600 transition-colors duration-200 ai-style-change-1">
+                Add Recipe
+            </button>
+
+
+
         </div>
     );
 };
