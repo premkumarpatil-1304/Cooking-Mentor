@@ -824,6 +824,7 @@ const AddRecipe = () => {
                   {/* Instructions Preview */}
                   {recipeData.instructions.some(inst => inst.instruction.trim()) && (
                     <div className="mb-6">
+                      <div></div>
                       <h3 className="text-lg font-bold text-gray-800 mb-3 flex items-center">
                         <BookOpen className="h-5 w-5 text-orange-500 mr-2" />
                         Instructions
